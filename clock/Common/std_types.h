@@ -16,6 +16,9 @@
 /* Boolean Data Type */
 typedef unsigned char boolean;
 
+#include "std_types.h"
+
+
 /* Boolean Values */
 #ifndef FALSE
 #define FALSE       (0u)

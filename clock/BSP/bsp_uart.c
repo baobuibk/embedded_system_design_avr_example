@@ -11,7 +11,7 @@
 
 void bsp_uart_init(void)
 {
-	UART_init(9600, CPU_FREQ);
+	UART_init(9600, F_CPU);
 }
 
 void _putchar(char character)

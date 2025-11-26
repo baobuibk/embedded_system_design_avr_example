@@ -47,14 +47,18 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../App/main.c \
+../BSP/bsp_lcd.c \
 ../BSP/bsp_rtc.c \
+../BSP/bsp_timer.c \
 ../BSP/bsp_uart.c \
 ../Driver/Components/gpio.c \
 ../Driver/Components/spi.c \
 ../Driver/Components/twi.c \
 ../Driver/Components/uart.c \
 ../Driver/Devices/ds1307.c \
+../Driver/Devices/lcd_16_2_4bit.c \
 ../MiddleWare/printf/printf.c \
+../test/test_lcd.c \
 ../test/test_rtc.c
 
 
@@ -66,50 +70,66 @@ ASM_SRCS +=
 
 OBJS +=  \
 App/main.o \
+BSP/bsp_lcd.o \
 BSP/bsp_rtc.o \
+BSP/bsp_timer.o \
 BSP/bsp_uart.o \
 Driver/Components/gpio.o \
 Driver/Components/spi.o \
 Driver/Components/twi.o \
 Driver/Components/uart.o \
 Driver/Devices/ds1307.o \
+Driver/Devices/lcd_16_2_4bit.o \
 MiddleWare/printf/printf.o \
+test/test_lcd.o \
 test/test_rtc.o
 
 OBJS_AS_ARGS +=  \
 App/main.o \
+BSP/bsp_lcd.o \
 BSP/bsp_rtc.o \
+BSP/bsp_timer.o \
 BSP/bsp_uart.o \
 Driver/Components/gpio.o \
 Driver/Components/spi.o \
 Driver/Components/twi.o \
 Driver/Components/uart.o \
 Driver/Devices/ds1307.o \
+Driver/Devices/lcd_16_2_4bit.o \
 MiddleWare/printf/printf.o \
+test/test_lcd.o \
 test/test_rtc.o
 
 C_DEPS +=  \
 App/main.d \
+BSP/bsp_lcd.d \
 BSP/bsp_rtc.d \
+BSP/bsp_timer.d \
 BSP/bsp_uart.d \
 Driver/Components/gpio.d \
 Driver/Components/spi.d \
 Driver/Components/twi.d \
 Driver/Components/uart.d \
 Driver/Devices/ds1307.d \
+Driver/Devices/lcd_16_2_4bit.d \
 MiddleWare/printf/printf.d \
+test/test_lcd.d \
 test/test_rtc.d
 
 C_DEPS_AS_ARGS +=  \
 App/main.d \
+BSP/bsp_lcd.d \
 BSP/bsp_rtc.d \
+BSP/bsp_timer.d \
 BSP/bsp_uart.d \
 Driver/Components/gpio.d \
 Driver/Components/spi.d \
 Driver/Components/twi.d \
 Driver/Components/uart.d \
 Driver/Devices/ds1307.d \
+Driver/Devices/lcd_16_2_4bit.d \
 MiddleWare/printf/printf.d \
+test/test_lcd.d \
 test/test_rtc.d
 
 OUTPUT_FILE_PATH +=clock.elf
@@ -133,7 +153,21 @@ App/main.o: ../App/main.c
 	@echo Finished building: $<
 	
 
+BSP/bsp_lcd.o: ../BSP/bsp_lcd.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.36
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega324A  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega324A__ -DDEBUG  -I"../Common" -I"../Driver/Components" -I"../Driver/Devices" -I"../BSP" -I"../MiddleWare/printf" -I"../test"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 BSP/bsp_rtc.o: ../BSP/bsp_rtc.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.36
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega324A  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega324A__ -DDEBUG  -I"../Common" -I"../Driver/Components" -I"../Driver/Devices" -I"../BSP" -I"../MiddleWare/printf" -I"../test"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+BSP/bsp_timer.o: ../BSP/bsp_timer.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega324A  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega324A__ -DDEBUG  -I"../Common" -I"../Driver/Components" -I"../Driver/Devices" -I"../BSP" -I"../MiddleWare/printf" -I"../test"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -182,7 +216,21 @@ Driver/Devices/ds1307.o: ../Driver/Devices/ds1307.c
 	@echo Finished building: $<
 	
 
+Driver/Devices/lcd_16_2_4bit.o: ../Driver/Devices/lcd_16_2_4bit.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.36
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega324A  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega324A__ -DDEBUG  -I"../Common" -I"../Driver/Components" -I"../Driver/Devices" -I"../BSP" -I"../MiddleWare/printf" -I"../test"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 MiddleWare/printf/printf.o: ../MiddleWare/printf/printf.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.36
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega324A  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega324A__ -DDEBUG  -I"../Common" -I"../Driver/Components" -I"../Driver/Devices" -I"../BSP" -I"../MiddleWare/printf" -I"../test"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+test/test_lcd.o: ../test/test_lcd.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega324A  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega324A__ -DDEBUG  -I"../Common" -I"../Driver/Components" -I"../Driver/Devices" -I"../BSP" -I"../MiddleWare/printf" -I"../test"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

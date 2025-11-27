@@ -40,6 +40,19 @@
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
+    <avrtoolserialnumber />
+    <avrdeviceexpectedsignature>0x1E9515</avrdeviceexpectedsignature>
+    <com_atmel_avrdbg_tool_simulator>
+      <ToolOptions xmlns="">
+        <InterfaceProperties>
+        </InterfaceProperties>
+      </ToolOptions>
+      <ToolType xmlns="">com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolNumber xmlns="">
+      </ToolNumber>
+      <ToolName xmlns="">Simulator</ToolName>
+    </com_atmel_avrdbg_tool_simulator>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -105,10 +118,22 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="App\app_button.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="App\app_button.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="App\main.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="BSP\board.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="BSP\bsp_button.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="BSP\bsp_button.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="BSP\bsp_lcd.c">

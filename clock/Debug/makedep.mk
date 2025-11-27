@@ -2,7 +2,11 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+App\app_button.c
+
 App\main.c
+
+BSP\bsp_button.c
 
 BSP\bsp_lcd.c
 

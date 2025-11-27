@@ -70,7 +70,7 @@ void LCD_RS_LOW(void)
 }
 
 /* EN: PA2 */
-void LCD_EN_HIGH(void)
+void LCD_EN_HIGH(void)  
 {
     bsp_lcd_force_write_mode();
     bsp_lcd_set_bit(&PORTA, PA2);

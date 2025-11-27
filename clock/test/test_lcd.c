@@ -7,14 +7,15 @@
 #include "test_lcd.h"
 #include "lcd_16_2_4bit.h"
 #include "bsp_lcd.h"
+#include "bsp_timer.h"
 
 #include <stdint.h>
 #include <stdio.h>   /* dùng sprintf, n?u ng?i n?ng có th? ??i sang itoa */
-#define LCD_TEST_PAUSE_INTERVAL 5000
+#define LCD_TEST_PAUSE_INTERVAL 1000
 /* Hàm ti?n l?i: dùng luôn delay c?a driver */
 static void test_delay_ms(uint16_t ms)
 {
-    LCD_DelayMs(ms);
+    BSP_DelayMs(ms);
 }
 
 /* 1. Kh?i t?o và in thông ?i?p chào */
@@ -93,7 +94,7 @@ void TEST_LCD_ScrollDemo(const char *line2Text, uint16_t scrollDelayMs)
         LCD_GotoXY(0, 0);
         LCD_PutString(window);
 
-        test_delay_ms(LCD_TEST_PAUSE_INTERVAL);
+        test_delay_ms(500);
 
     }
 

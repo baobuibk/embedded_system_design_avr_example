@@ -10,7 +10,7 @@
 #define BOARD_H_
 
 
-#define F_CPU 1000000UL
+#define F_CPU 8000000UL
 
 
 #endif /* BOARD_H_ */

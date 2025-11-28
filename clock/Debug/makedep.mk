@@ -6,6 +6,8 @@ App\app_button.c
 
 App\main.c
 
+App\test_main.c
+
 BSP\bsp_button.c
 
 BSP\bsp_lcd.c

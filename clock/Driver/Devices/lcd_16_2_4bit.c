@@ -67,6 +67,8 @@ static void LCD_Send(uint8_t value, uint8_t isData);
 /* G?i xung Enable ?? LCD ch?t d? li?u */
 static void LCD_PulseEnable(void)
 {
+	//PORTA |= (1<<2);
+	//PORTA &= ~(1<<2);
     LCD_EN_HIGH();
     LCD_DelayUs(1);      /* t_pweh t?i thi?u ~450ns */
     LCD_EN_LOW();

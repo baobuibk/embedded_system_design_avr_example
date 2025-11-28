@@ -127,6 +127,9 @@
     <Compile Include="App\main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="App\test_main.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="BSP\board.h">
       <SubType>compile</SubType>
     </Compile>

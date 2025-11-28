@@ -48,6 +48,7 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../App/app_button.c \
 ../App/main.c \
+../App/test_main.c \
 ../BSP/bsp_button.c \
 ../BSP/bsp_lcd.c \
 ../BSP/bsp_rtc.c \
@@ -73,6 +74,7 @@ ASM_SRCS +=
 OBJS +=  \
 App/app_button.o \
 App/main.o \
+App/test_main.o \
 BSP/bsp_button.o \
 BSP/bsp_lcd.o \
 BSP/bsp_rtc.o \
@@ -91,6 +93,7 @@ test/test_rtc.o
 OBJS_AS_ARGS +=  \
 App/app_button.o \
 App/main.o \
+App/test_main.o \
 BSP/bsp_button.o \
 BSP/bsp_lcd.o \
 BSP/bsp_rtc.o \
@@ -109,6 +112,7 @@ test/test_rtc.o
 C_DEPS +=  \
 App/app_button.d \
 App/main.d \
+App/test_main.d \
 BSP/bsp_button.d \
 BSP/bsp_lcd.d \
 BSP/bsp_rtc.d \
@@ -127,6 +131,7 @@ test/test_rtc.d
 C_DEPS_AS_ARGS +=  \
 App/app_button.d \
 App/main.d \
+App/test_main.d \
 BSP/bsp_button.d \
 BSP/bsp_lcd.d \
 BSP/bsp_rtc.d \
@@ -164,6 +169,13 @@ App/app_button.o: ../App/app_button.c
 	
 
 App/main.o: ../App/main.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.36
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega324A  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega324A__ -DDEBUG  -I"../Common" -I"../Driver/Components" -I"../Driver/Devices" -I"../BSP" -I"../MiddleWare/printf" -I"../test"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+App/test_main.o: ../App/test_main.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega324A  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega324A__ -DDEBUG  -I"../Common" -I"../Driver/Components" -I"../Driver/Devices" -I"../BSP" -I"../MiddleWare/printf" -I"../test"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

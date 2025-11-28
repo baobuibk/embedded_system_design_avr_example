@@ -130,6 +130,12 @@ Discarded input sections
  .text          0x0000000000000000        0x0 App/main.o
  .data          0x0000000000000000        0x0 App/main.o
  .bss           0x0000000000000000        0x0 App/main.o
+ .text          0x0000000000000000        0x0 App/test_main.o
+ .data          0x0000000000000000        0x0 App/test_main.o
+ .bss           0x0000000000000000        0x0 App/test_main.o
+ .debug_line    0x0000000000000000        0x0 App/test_main.o
+ .debug_str     0x0000000000000000        0x0 App/test_main.o
+ .comment       0x0000000000000000       0x30 App/test_main.o
  .text          0x0000000000000000        0x0 BSP/bsp_button.o
  .data          0x0000000000000000        0x0 BSP/bsp_button.o
  .bss           0x0000000000000000        0x0 BSP/bsp_button.o
@@ -829,6 +835,7 @@ Address of section .data set to 0x800100
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega324a.o
 LOAD App/app_button.o
 LOAD App/main.o
+LOAD App/test_main.o
 LOAD BSP/bsp_button.o
 LOAD BSP/bsp_lcd.o
 LOAD BSP/bsp_rtc.o
